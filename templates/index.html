@@ -1,0 +1,31 @@
+<!doctype html>
+    <head>
+        <meta charset="utf-8">
+        <title>APP</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style4.css') }}">
+		<script>
+			function isEmpty(){
+				var element = document.getElementById('input').value
+				if(element){
+					document.getElementById('submit').click();
+				}else{
+					alert('Text area is empty!')
+				}
+			}
+		</script>
+    </head>
+    <body>
+		<form id='content' name='text-field' method='POST'>
+			<textarea id='input' 
+					  name='input-text' 
+					  style="width: 97%; height: 100px; margin: 15px;"></textarea>
+			<button type='button' id='but' onclick="isEmpty()" style="margin-left: 45%; width: 10%;">send</button>
+			<input id='submit' type='submit' value='send text' style='display: none'/>
+		</form>
+		
+		{% for i in text %}
+        <DIV id="out" >{{ text[loop.index - 1][0] }}</DIV>
+		{% endfor %}
+		
+    </body>
+</html>
